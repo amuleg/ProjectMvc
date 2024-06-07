@@ -4,34 +4,38 @@ namespace App\Core;
 
 class Router
 {
-    private const METHOD = 'index';
-    private const CONTROLLER_PATH = 'App\Controllers\\';
-    public function run() : void
+    private const METHOD = "index";
+    private const CONTROLLER_PATH = "App\Controllers\\";
+    private array $route = [];
+    public function __construct()
     {
-        $method = self::METHOD;
-
+        $this->route = require_once __DIR__ . "/../../config/router.php";
+    }
+    public function run(): void
+    {
         if (!empty($_SERVER["PATH_INFO"])) {
-           
-            $separateUrl = explode('/', $_SERVER["PATH_INFO"]);
-            $route = ucfirst($separateUrl[1]);
-            if(isset($separateUrl[2])){
-                $method = $separateUrl[2];
+            if (array_key_exists($_SERVER["PATH_INFO"], $this->route)) {
+                $separateUrl = explode(":", $this->route[$_SERVER["PATH_INFO"]]);
+                $route = ucfirst($separateUrl[0]);
+            } else {
+                $route = "Error";
             }
         } else {
-            $route = 'Main';
+            $route = "Main";
         }
-       
-      $controllerNameSpace = self::CONTROLLER_PATH . $route;
 
-      if (!class_exists($controllerNameSpace)){
-        $controllerNameSpace = self::CONTROLLER_PATH . 'Error';
-      }
-     
-      $controller = new $controllerNameSpace();
-      if (!method_exists($controller, $method)) {
-        $method = 'error';
-    }
-      $controller->$method();
+        $method = $separateUrl[1] ?? self::METHOD;
+        $controllerNameSpace = self::CONTROLLER_PATH . $route;
+        
+        if (!class_exists($controllerNameSpace)) {
+            $controllerNameSpace = self::CONTROLLER_PATH . "Error";
+        }
+
+        $controller = new $controllerNameSpace();
+        if (!method_exists($controller, $method)) {
+            $method = "error";
+        }
+
+        $controller->$method();
     }
 }
-

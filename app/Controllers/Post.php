@@ -2,18 +2,32 @@
 
 namespace App\Controllers;
 
+use App\Core\Viewer;
+
 class Post
 {
     public function index()
     {
-        var_dump('Hello, I\'m Post');
+        $data = [
+            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+            ];
+            Viewer::view("post/index", $data);
     }
     public function test()
     {
-        var_dump('Hello, I\'m Post Test Method');
+        $data = [
+            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+            ];
+            Viewer::view("post/test", $data);
     }
     public function error()
     {
-        var_dump('Hello, I\'m Post Error Method');
+        $data = [
+            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+            ];
+            Viewer::view("post/error", $data);
     }
 }

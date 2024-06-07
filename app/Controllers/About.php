@@ -2,18 +2,32 @@
 
 namespace App\Controllers;
 
+use App\Core\Viewer;
+
 class About 
 {
     public function index()
-    {
-        var_dump('Hello, I\'m About');
+    { 
+        $data = [
+        "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+        "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+        ];
+        Viewer::view("about/index", $data);
     }
     public function test()
     {
-        var_dump('Hello, I\'m About Test Method');
+        $data = [
+            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+            ];
+            Viewer::view("about/test", $data);
     }
     public function error()
     {
-        var_dump('Hello, I\'m About Error Method');
+        $data = [
+            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+            ];
+            Viewer::view("about/error", $data);
     }
 }

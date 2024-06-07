@@ -2,18 +2,32 @@
 
  namespace App\Controllers;
 
+ use App\Core\Viewer;
+
 class Error 
 {
     public function index()
     {
-        var_dump('Hello, I\'m Error');
+       $data = [
+        "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+        "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+        ];
+        Viewer::view("error/index", $data);
     }
     public function test()
     {
-        var_dump('Hello, I\'m Error Test Method');
+        $data = [
+            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+            ];
+            Viewer::view("error/test", $data);
     }
     public function error()
     {
-        var_dump('Hello, I\'m Error Error Method');
+        $data = [
+            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
+            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
+            ];
+            Viewer::view("error/error", $data);
     }
 }
