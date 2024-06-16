@@ -24,7 +24,6 @@ class Router
         } else {
             $route = "Main";
         }
-
         $method = $separateUrl[1] ?? self::METHOD;
         $controllerNameSpace = self::CONTROLLER_PATH . $route;
         
@@ -36,7 +35,6 @@ class Router
         if (!method_exists($controller, $method)) {
             $method = "error";
         }
-
         $controller->$method();
     }
 }

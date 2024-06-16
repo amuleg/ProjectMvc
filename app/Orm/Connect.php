@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Orm;
+
 use \PDO;
 
 class Connect
 {
     private PDO $connect;
-
     private string $dns;
     private string $user;
     private string $password;
@@ -26,11 +26,9 @@ class Connect
         $this->user =  $config['user'];
         $this->password =  $config['password'];
     }
-    private function connect(){
-
-   
+    private function connect()
+    {
       $this->connect = new PDO($this->dns, $this->user, $this->password);
-
     }
  
 }

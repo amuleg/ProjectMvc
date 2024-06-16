@@ -13,6 +13,4 @@ class Viewer
     extract($data);
     include __DIR__ . "/../../public/View/" . $route . "/" . $file . "." . $file_type;
   }
-
-  
 }

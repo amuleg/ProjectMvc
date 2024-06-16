@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 Class Users
 {
     public function findOne()
