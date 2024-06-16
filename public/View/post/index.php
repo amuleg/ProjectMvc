@@ -11,18 +11,20 @@
         <h1>Post - Index</h1>
         <table>
        
-        <tr>
-        <?php foreach ($first as $value) : ?>
-
-            <td><?= $value ?></td>
+     
+        <?php foreach ($data as $value) : ?>
+            <tr>
+            <td><?=$value['id']  ?></td>
+            <td><?=$value['authorId']  ?></td>
+            <td><?=$value['author']  ?></td>
+            <td><?=$value['title']  ?></td>
+            <td><?=$value['body']  ?></td>
+            </tr>
             <?php endforeach ?>
-        </tr>
-        <tr>
-        <?php foreach ($second as $value) : ?>
-
-            <td><?= $value ?></td>
-            <?php endforeach ?>
-        </tr>      
+            
+      
+        
+           
        
         </table>
         </div>

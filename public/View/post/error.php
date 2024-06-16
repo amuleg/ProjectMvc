@@ -12,17 +12,12 @@
         <table>
        
         <tr>
-        <?php foreach ($first as $value) : ?>
+        <?php foreach ($data as $value) : ?>
 
             <td><?= $value ?></td>
             <?php endforeach ?>
         </tr>
-        <tr>
-        <?php foreach ($second as $value) : ?>
-
-            <td><?= $value ?></td>
-            <?php endforeach ?>
-        </tr>      
+        <tr>   
        
         </table>
         </div>

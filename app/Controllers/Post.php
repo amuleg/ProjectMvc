@@ -3,31 +3,25 @@
 namespace App\Controllers;
 
 use App\Core\Viewer;
+use App\Models\Posts;
+use App\Orm\Connect;
 
 class Post
 {
     public function index()
     {
-        $data = [
-            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
-            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
-            ];
-            Viewer::view("post/index", $data);
+//         $data["data"] = (new Posts) -> findAll();
+//             Viewer::view("post/index", $data);
+         var_dump((new Connect)->getConnect());
     }
     public function test()
     {
-        $data = [
-            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
-            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
-            ];
+        $data["data"] = (new Posts) -> findOne();
             Viewer::view("post/test", $data);
     }
     public function error()
     {
-        $data = [
-            "first" => ['first1'=>'1f', "first2"=>'2f', "first3" => '3f', "first4" => '4f'],
-            "second" => ['sec1'=>'1s', "sec2"=>'2s', "sec3" => '3s', "sec4" => '4s']
-            ];
+        $data["data"] = (new Posts) -> findOne();
             Viewer::view("post/error", $data);
     }
 }

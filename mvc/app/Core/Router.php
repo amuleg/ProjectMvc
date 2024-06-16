@@ -13,10 +13,10 @@ class Router
     }
     public function run(): void
     {
-    
-        if (!empty($_SERVER["REQUEST_URI"])) {
-            if (array_key_exists($_SERVER["REQUEST_URI"], $this->route)) {
-                $separateUrl = explode(":", $this->route[$_SERVER["REQUEST_URI"]]);
+         var_dump($_SERVER);
+        if (!empty($_SERVER["QUERY_STRING"])) {
+            if (array_key_exists($_SERVER["QUERY_STRING"], $this->route)) {
+                $separateUrl = explode(":", $this->route[$_SERVER["QUERY_STRING"]]);
                 $route = ucfirst($separateUrl[0]);
             } else {
                 $route = "Error";
