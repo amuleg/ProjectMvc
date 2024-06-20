@@ -4,13 +4,17 @@ namespace App\Controllers;
 
 use App\Core\Viewer;
 use App\Models\Posts;
-use App\Orm\Connect;
-
 class Post
 {
     public function index()
     {
-         var_dump((new Connect)->getConnect());
+        $data["data"] = (new Posts) -> findAll();
+        Viewer::view("post/index", $data);
+
+        $data["data"] = (new Posts) -> findLimitFromOffset(2, 4);
+        Viewer::view("post/index", $data);
+        $data["data"] = (new Posts) -> findOrderBy("author_id");
+        Viewer::view("post/index", $data);
     }
     public function test()
     {
